@@ -1,0 +1,16 @@
+# output = "models"
+# 再生成前に既存の生成物を削除
+wipe = true
+# 生成される構造体のタグに追加
+tag = ["csv"]
+
+[mysql]
+  dbname     = "local"
+  host       = "127.0.0.1"
+  port       = 3306
+  user       = "user"
+  pass       = "password"
+  sslmode    = "false"
+  whitelist = [
+    "users",
+  ]

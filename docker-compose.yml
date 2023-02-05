@@ -1,0 +1,39 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    build: .
+    environment:
+      - DRIVER
+      - MYSQL_HOST
+      - DSN
+    ports:
+      - 8080:8080
+    tty:
+      true
+    volumes:
+      - ./:/go/app
+    depends_on:
+      - db
+    networks:
+      - GoDocker
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    env_file: .env
+    environment:
+        - MYSQL_ROOT_PASSWORD
+        - MYSQL_DATABASE
+        - MYSQL_USER
+        - MYSQL_PASSWORD
+    ports:
+      - 3306:3306
+    volumes:
+        - ./data-store:/var/lib/mysql
+    networks:
+      - GoDocker
+
+networks:
+  GoDocker:
+    name: GoDocker
