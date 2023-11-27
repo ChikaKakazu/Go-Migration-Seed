@@ -31,7 +31,6 @@ func main() {
 	}
 }
 
-// TODO : DBオープン・クローズはどこかにまとめたい
 func OpenDB(driver, dsn string) *sql.DB {
 	db, err := sql.Open(driver, dsn)
 	if err != nil {

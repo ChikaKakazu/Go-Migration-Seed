@@ -1,4 +1,4 @@
-FROM golang:1.18.3-alpine3.16
+FROM golang:1.21-alpine3.18
 
 RUN apk update && apk add git curl
 
